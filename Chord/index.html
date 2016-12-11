@@ -10,11 +10,11 @@ fill: none;
 pointer-events: all;
 }
  
-.group path {
+#circle .group path {
 	fill-opacity: .5;
 }
  
-path.chord {
+#circle path.chord {
 stroke: #000;
 stroke-width: .25px;
 }
@@ -33,6 +33,7 @@ stroke-width: .25px;
 </header>
 
 <body>
+<div id = "div_chord" translate = "translate(300, 300)"> </div>
 
 <!-- <script src="http://d3js.org/d3.v2.min.js?2.8.1"></script> -->
 <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -179,11 +180,11 @@ function colores_google(n) {
   return colores_g[n % colores_g.length];
 }
 
-//Draw SVG
-var width = 600,
-height = 600,
-outerRadius = Math.min(width, height) / 2 - 10,
-innerRadius = outerRadius - 24;
+//Draw SVG_chord
+var width_chord = 600,
+	height_chord = 600,
+	outerRadius = Math.min(width_chord, height_chord) / 2 - 10,
+	innerRadius = outerRadius - 24;
  
 var formatPercent = d3.format(".1%");
  
@@ -200,8 +201,9 @@ var path = d3.svg.chord()
 				.radius(innerRadius);
  
 var svg = d3.select("body").append("svg")
-			.attr("width", width)
-			.attr("height", height);
+			.attr("transform", "translate(" + 100 + "," + 100 + ")")
+			.attr("width", width_chord)
+			.attr("height", height_chord);
 
 draw_chord();
 
@@ -293,7 +295,7 @@ function draw_chord()
 
 	var circle = svg.append("g")
 		.attr("id", "circle")
-		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+		.attr("transform", "translate(" + width_chord / 2 + "," + height_chord / 2 + ")");
 
 	circle.append("circle")
 		.attr("r", outerRadius);
@@ -383,6 +385,7 @@ function draw_chord()
 }
 
 </script>
+
 
 <p>Please select the number of most important markers shown per cluster</p>
 <div id = "container" align="left" style = "left: 300px; position: relative;">
