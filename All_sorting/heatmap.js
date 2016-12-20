@@ -76,8 +76,8 @@ function draw_heatmap(x_heatmap, y_rowlabel, z_collabel)
         d3.select("#highlight")
                .style("height", (gridSize) + "px")
                .style("width", (gridSize * col_num ) + "px")
-               .style("left", (margin_h.left + gridSize/2) + "px")
-               .style("top", (margin_h.top + (i+0.5)*gridSize ) + "px");
+               .style("left", (margin_h.left + gridSize * 0.25) + "px")
+               .style("top", (margin_h.top + (i+0.3)*gridSize ) + "px");
         
              //Show the highlight
         d3.select("#highlight").classed("hidden", false);  
